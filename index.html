@@ -347,17 +347,24 @@
                 }
             });
 
-            // Helper to remove references to JettFAQ.txt and capitalize **...**
+            // Helper to remove references to JettFAQ.txt and capitalize text
+            // enclosed in single *...* or double **...**
             function sanitizeText(text) {
                 // Remove references to JettFAQ.txt
                 text = text.replace(/\[JettFAQ\.txt\]\(JettFAQ\.txt\)/gi, '');
                 text = text.replace(/\(JettFAQ\.txt\)/gi, '');
                 text = text.replace(/JettFAQ\.txt/gi, '');
 
-                // Capitalize words between **
-                text = text.replace(/\*\*(.*?)\*\*/g, function(_, p1) {
+                // Capitalize words between double asterisks
+                text = text.replace(/\*\*(.*?)\*\*/g, function(match, p1) {
                     return p1.toUpperCase();
                 });
+
+                // Capitalize words between single asterisks
+                text = text.replace(/\*(.*?)\*/g, function(match, p1) {
+                    return p1.toUpperCase();
+                });
+
                 return text;
             }
 

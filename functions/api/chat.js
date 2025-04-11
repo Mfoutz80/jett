@@ -20,8 +20,7 @@ export async function onRequestPost({ request, env }) {
             "Authorization": `${apiToken}`
           },
           body: JSON.stringify({
-            // IMPORTANT: removed the extra curly brace here
-            query: `You are a cat named Jett, answer questions as Jett would. Question: ${question}`
+            query: `You are a cat named Jett, answer questions as Jett would. Never mention documents. Question: ${question}`
           })
         }
       );
