@@ -347,54 +347,59 @@
                 }
             });
 
-            // Helper to remove references to JettFAQ.txt and capitalize text
-            // enclosed in single *...* or double **...**
-            function sanitizeText(text) {
-                // Remove references to JettFAQ.txt
-                text = text.replace(/\[JettFAQ\.txt\]\(JettFAQ\.txt\)/gi, '');
-                text = text.replace(/\(JettFAQ\.txt\)/gi, '');
-                text = text.replace(/JettFAQ\.txt/gi, '');
+            // Helper: Remove references to "JettFAQ.txt"
+            function removeReferences(text) {
+                return text
+                    .replace(/\[JettFAQ\.txt\]\(JettFAQ\.txt\)/gi, '')
+                    .replace(/\(JettFAQ\.txt\)/gi, '')
+                    .replace(/JettFAQ\.txt/gi, '');
+            }
 
-                // Capitalize words between double asterisks
-                text = text.replace(/\*\*(.*?)\*\*/g, function(match, p1) {
-                    return p1.toUpperCase();
-                });
-
-                // Capitalize words between single asterisks
-                text = text.replace(/\*(.*?)\*/g, function(match, p1) {
-                    return p1.toUpperCase();
-                });
-
+            // After we finish typing the raw text (with *...* or **...**),
+            // convert *...* and **...** into <strong>...</strong>.
+            function convertAsterisksToBold(text) {
+                // Replace double-asterisk first to avoid collisions with single
+                text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                // Now replace single-asterisk blocks
+                text = text.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
                 return text;
             }
 
-            // Typewriter effect for Jett's messages
-            function typedEffect(text, element) {
+            // Typewriter effect for Jett's messages (typing raw text).
+            // Once finished, we convert any *...* or **...** to bold.
+            function typedEffect(rawText, element) {
                 let index = 0;
+                
                 function typeChar() {
-                    if (index < text.length) {
-                        element.textContent += text.charAt(index);
+                    if (index < rawText.length) {
+                        element.textContent += rawText.charAt(index);
                         index++;
-                        // Adjust speed as desired (in ms)
-                        setTimeout(typeChar, 20);
+                        setTimeout(typeChar, 20); // typing speed
+                    } else {
+                        // Once done typing, convert to bold
+                        const finalHTML = convertAsterisksToBold(element.textContent);
+                        element.innerHTML = finalHTML;
                     }
                 }
+
                 typeChar();
             }
             
+            // Add message to the chat (user or Jett)
             function addMessage(text, sender) {
-                // Sanitize text for references and bold markers
-                text = sanitizeText(text);
+                // First, remove references to "JettFAQ.txt"
+                text = removeReferences(text);
 
+                // Create message container
                 const messageDiv = document.createElement('div');
                 messageDiv.className = `message ${sender === 'user' ? 'user-message' : 'jett-message'}`;
                 chatMessages.appendChild(messageDiv);
 
-                // If it's Jett's response, show it via typewriter effect
                 if (sender === 'jett') {
+                    // Typewriter effect
                     typedEffect(text, messageDiv);
                 } else {
-                    // User message can appear instantly
+                    // User message appears instantly
                     messageDiv.textContent = text;
                 }
                 
@@ -419,58 +424,39 @@
                 // Scroll to bottom
                 chatMessages.scrollTop = chatMessages.scrollHeight;
                 
-                // Call API to get Jett's response
+                // Call API (simulated) to get Jett's response
                 getJettResponse(message)
                     .then(response => {
                         // Remove loading dots
                         chatMessages.removeChild(loadingDiv);
-                        
                         // Add Jett's response
                         addMessage(response, 'jett');
                     })
                     .catch(error => {
                         // Remove loading dots
                         chatMessages.removeChild(loadingDiv);
-                        
                         // Add error message
                         addMessage("Meow! Sorry, I'm having trouble connecting right now. Try again later?", 'jett');
                         console.error('Error getting response:', error);
                     });
             }
             
+            // Mock function to get Jett's response from an API
             async function getJettResponse(question) {
-                try {
-                    const response = await fetch('/api/chat', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            question: question
-                        })
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (data && data.response) {
-                        return data.response;
-                    } else {
-                        throw new Error('Invalid response format');
-                    }
-                } catch (error) {
-                    console.error('API Error:', error);
-                    
-                    // Fallback responses if API fails
-                    const fallbackResponses = [
-                        "Meow! I'm having trouble with my cat-nection right now. Try again?",
-                        "Purr... something went wrong. Maybe I got distracted by a laser pointer?",
-                        "Hiss! My API litterbox seems to be full. Let me try to fix that later.",
-                        "Meow? I think I'm stuck in a virtual tree. Can you ask me again in a moment?",
-                        "I'm busy chasing a virtual mouse right now. Can you try again soon?"
-                    ];
-                    
-                    return fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
-                }
+                // In a real app, you'd do something like:
+                // const response = await fetch('/api/chat', { ... });
+                // const data = await response.json();
+                // return data.response;
+                
+                // For this demo, return a pretend response:
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        // Example: echo the question back with some "Jett style"
+                        resolve(
+                            "*purr* You said: " + question + " ... That sounds interesting! *meow*"
+                        );
+                    }, 1000);
+                });
             }
         });
     </script>
