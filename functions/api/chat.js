@@ -17,7 +17,7 @@ export async function onRequestPost({ request, env }) {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiToken}`
+            "Authorization": `${apiToken}`
           },
           body: JSON.stringify({
             // IMPORTANT: removed the extra curly brace here
