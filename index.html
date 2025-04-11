@@ -76,6 +76,25 @@
             flex: 1;
             padding: 15px;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch; /* Improved scrolling on iOS */
+            scrollbar-width: thin; /* For Firefox */
+            scrollbar-color: #cbd5e0 #f7fafc; /* For Firefox */
+        }
+        
+        /* Ensure scrollbar appears on mobile */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+            display: block;
+        }
+        
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f7fafc;
+            border-radius: 10px;
+        }
+        
+        .chat-messages::-webkit-scrollbar-thumb {
+            background-color: #cbd5e0;
+            border-radius: 10px;
         }
         
         .message {
@@ -97,6 +116,18 @@
             background-color: #1a202c;
             color: white;
             align-self: flex-start;
+        }
+        
+        /* Typing animation for AI response */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        .typing-animation {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 0.5s steps(40, end);
         }
         
         .chat-input-container {
@@ -306,7 +337,7 @@
             </div>
         </div>
         <div class="chat-messages flex flex-col" id="chatMessages">
-            <div class="message jett-message">
+            <div class="message jett-message typing-animation">
                 Meow! I'm Jett, the sleek black cat with a talent for mischief. What would you like to know about me?
             </div>
         </div>
@@ -383,9 +414,31 @@
             }
             
             function addMessage(text, sender) {
+                // Format text - capitalize words between ** (and remove the asterisks)
+                let formattedText = text;
+                if (sender === 'jett') {
+                    // Remove JettFAQ.txt references
+                    formattedText = formattedText.replace(/\[JettFAQ\.txt\]\(JettFAQ\.txt\)/g, '');
+                    formattedText = formattedText.replace(/\[FAQs\]\(JettFAQ\.txt\)/g, '');
+                    
+                    // Capitalize words between asterisks
+                    formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, function(match, p1) {
+                        return p1.toUpperCase();
+                    });
+                    formattedText = formattedText.replace(/\*(.*?)\*/g, function(match, p1) {
+                        return p1;
+                    });
+                }
+                
                 const messageDiv = document.createElement('div');
                 messageDiv.className = `message ${sender === 'user' ? 'user-message' : 'jett-message'}`;
-                messageDiv.textContent = text;
+                
+                // Add typing animation for Jett's messages
+                if (sender === 'jett') {
+                    messageDiv.classList.add('typing-animation');
+                }
+                
+                messageDiv.textContent = formattedText;
                 chatMessages.appendChild(messageDiv);
                 
                 // Scroll to bottom
