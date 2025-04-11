@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jett the Cat - A Mischievous Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .cat-silhouette {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            background-color: black;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        /* Chat Bubble and Box Styles */
+        .chat-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #1a202c;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .chat-bubble:hover {
+            transform: scale(1.1);
+        }
+        
+        .chat-box {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 450px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 999;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        
+        .chat-box.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .chat-header {
+            background-color: #1a202c;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            line-height: 1.4;
+        }
+        
+        .user-message {
+            background-color: #e2e8f0;
+            color: #1a202c;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        
+        .jett-message {
+            background-color: #1a202c;
+            color: white;
+            align-self: flex-start;
+        }
+        
+        .chat-input-container {
+            padding: 15px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            outline: none;
+        }
+        
+        .send-button {
+            margin-left: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1a202c;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .loading-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #1a202c;
+            border-radius: 50%;
+            margin: 0 3px;
+            opacity: 0.6;
+            animation: dot-flashing 1s infinite alternate;
+        }
+        
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes dot-flashing {
+            0% {
+                opacity: 0.2;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-gray-900 text-white py-6">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Jett the Cat</h1>
+            <div class="cat-silhouette w-12 h-12"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-800 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mx-auto w-32 h-32 cat-silhouette mb-8"></div>
+            <h2 class="text-4xl font-bold mb-4">Meet Jett</h2>
+            <p class="text-xl max-w-2xl mx-auto">A sleek black cat with a heart full of curiosity and a talent for finding trouble.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <div class="bg-black w-full h-64 rounded-lg shadow-lg flex items-center justify-center">
+                        <div class="cat-silhouette w-24 h-24 bounce"></div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-bold mb-4">The Tale of Jett</h3>
+                    <p class="text-gray-700 mb-4">Jett may look like an ordinary black cat, but he's extraordinary in every way. During the day, he's a professional cuddler who can turn any lap into his personal throne.</p>
+                    <p class="text-gray-700 mb-4">At night, he transforms into an explorer, investigating every corner of the house and occasionally knocking things over "by accident."</p>
+                    <p class="text-gray-700">His purr can melt hearts and his mischievous antics can both frustrate and amuse. That's just Jett being Jett!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personality Traits -->
+    <section class="py-16 bg-gray-200">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold mb-12 text-center">Jett's Personality</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Trait 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-gray-900 rounded-full mb-4 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">The Cuddler</h4>
+                    <p class="text-gray-700">Jett loves nothing more than to curl up on a warm lap and purr himself to sleep. His cuddle sessions are legendary and can last for hours.</p>
+                </div>
+                <!-- Trait 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-gray-900 rounded-full mb-4 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">The Explorer</h4>
+                    <p class="text-gray-700">No shelf is too high, no box too small for Jett to investigate. His curiosity knows no bounds, and neither does his ability to squeeze into tight spaces.</p>
+                </div>
+                <!-- Trait 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-gray-900 rounded-full mb-4 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">The Troublemaker</h4>
+                    <p class="text-gray-700">That vase? It was in his way. Those curtains? They needed climbing. Jett has a special talent for creating chaos and looking innocent afterward.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Schedule -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold mb-12 text-center">A Day in the Life of Jett</h3>
+            <div class="max-w-3xl mx-auto">
+                <div class="flex items-center mb-8">
+                    <div class="w-24 text-right pr-4 font-bold">6:00 AM</div>
+                    <div class="w-8 h-8 bg-gray-900 rounded-full flex-shrink-0"></div>
+                    <div class="pl-4">Wake up humans by sitting on their faces</div>
+                </div>
+                <div class="flex items-center mb-8">
+                    <div class="w-24 text-right pr-4 font-bold">8:00 AM</div>
+                    <div class="w-8 h-8 bg-gray-900 rounded-full flex-shrink-0"></div>
+                    <div class="pl-4">Breakfast followed by intense window watching</div>
+                </div>
+                <div class="flex items-center mb-8">
+                    <div class="w-24 text-right pr-4 font-bold">12:00 PM</div>
+                    <div class="w-8 h-8 bg-gray-900 rounded-full flex-shrink-0"></div>
+                    <div class="pl-4">Nap time in the sunniest spot available</div>
+                </div>
+                <div class="flex items-center mb-8">
+                    <div class="w-24 text-right pr-4 font-bold">5:00 PM</div>
+                    <div class="w-8 h-8 bg-gray-900 rounded-full flex-shrink-0"></div>
+                    <div class="pl-4">Dinner followed by intense zoomies around the house</div>
+                </div>
+                <div class="flex items-center mb-8">
+                    <div class="w-24 text-right pr-4 font-bold">9:00 PM</div>
+                    <div class="w-8 h-8 bg-gray-900 rounded-full flex-shrink-0"></div>
+                    <div class="pl-4">Cuddle session on the couch during movie time</div>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-24 text-right pr-4 font-bold">3:00 AM</div>
+                    <div class="w-8 h-8 bg-gray-900 rounded-full flex-shrink-0"></div>
+                    <div class="pl-4">Random midnight chaos and exploration</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 - Dedicated to Jett, the most purrfect cat in the world</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="#" class="hover:text-gray-400">About</a>
+                <a href="#" class="hover:text-gray-400">Photos</a>
+                <a href="#" class="hover:text-gray-400">Adventures</a>
+                <a href="#" class="hover:text-gray-400">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Chat Bubble -->
+    <div class="chat-bubble" id="chatBubble">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        </svg>
+    </div>
+    
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <div class="cat-silhouette w-8 h-8 mr-3"></div>
+            <div>
+                <h3 class="text-white font-bold text-lg">Chat with Jett</h3>
+                <p class="text-gray-300 text-xs">Ask me anything about my life!</p>
+            </div>
+        </div>
+        <div class="chat-messages flex flex-col" id="chatMessages">
+            <div class="message jett-message">
+                Meow! I'm Jett, the sleek black cat with a talent for mischief. What would you like to know about me?
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask Jett something..." aria-label="Type your message">
+            <button class="send-button" id="sendButton" aria-label="Send message">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatBubble = document.getElementById('chatBubble');
+            const chatBox = document.getElementById('chatBox');
+            const chatInput = document.getElementById('chatInput');
+            const sendButton = document.getElementById('sendButton');
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Toggle chat box
+            chatBubble.addEventListener('click', function() {
+                chatBox.classList.toggle('active');
+                if (chatBox.classList.contains('active')) {
+                    chatInput.focus();
+                }
+            });
+            
+            // Send message on button click
+            sendButton.addEventListener('click', sendMessage);
+            
+            // Send message on Enter key press
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message === '') return;
+                
+                // Add user message to chat
+                addMessage(message, 'user');
+                chatInput.value = '';
+                
+                // Show loading indicator
+                const loadingDiv = document.createElement('div');
+                loadingDiv.className = 'loading-dots';
+                loadingDiv.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+                chatMessages.appendChild(loadingDiv);
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Call API to get Jett's response
+                getJettResponse(message)
+                    .then(response => {
+                        // Remove loading dots
+                        chatMessages.removeChild(loadingDiv);
+                        
+                        // Add Jett's response
+                        addMessage(response, 'jett');
+                    })
+                    .catch(error => {
+                        // Remove loading dots
+                        chatMessages.removeChild(loadingDiv);
+                        
+                        // Add error message
+                        addMessage("Meow! Sorry, I'm having trouble connecting right now. Try again later?", 'jett');
+                        console.error('Error getting response:', error);
+                    });
+            }
+            
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender === 'user' ? 'user-message' : 'jett-message'}`;
+                messageDiv.textContent = text;
+                chatMessages.appendChild(messageDiv);
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            async function getJettResponse(question) {
+                try {
+                    const response = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            question: question
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data && data.response) {
+                        return data.response;
+                    } else {
+                        throw new Error('Invalid response format');
+                    }
+                } catch (error) {
+                    console.error('API Error:', error);
+                    
+                    // Fallback responses if API fails
+                    const fallbackResponses = [
+                        "Meow! I'm having trouble with my cat-nection right now. Try again?",
+                        "Purr... something went wrong. Maybe I got distracted by a laser pointer?",
+                        "Hiss! My API litterbox seems to be full. Let me try to fix that later.",
+                        "Meow? I think I'm stuck in a virtual tree. Can you ask me again in a moment?",
+                        "I'm busy chasing a virtual mouse right now. Can you try again soon?"
+                    ];
+                    
+                    return fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+                }
+            }
+        });
+    </script>
+</body>
+</html>
