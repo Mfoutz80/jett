@@ -17,10 +17,10 @@
     }
     
     .cat-silhouette {
-  background-image: url('images/logo.svg');
-  background-size: cover;
-  background-position: center;
-}
+      background-image: url('images/logo.svg');
+      background-size: cover;
+      background-position: center;
+    }
     
     .paw-print {
       clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
@@ -47,7 +47,7 @@
       left: -38px;
       width: 20px;
       height: 20px;
-      background-color: #1F2937;
+      background-color: #000000;
       border-radius: 50%;
       z-index: 1;
     }
@@ -59,7 +59,7 @@
       top: 10px;
       width: 2px;
       height: calc(100% + 40px);
-      background-color: #E5E7EB;
+      background-color: #ffffff;
       z-index: 0;
     }
     
@@ -79,50 +79,48 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background-color: black;
-      border: 3px solid white;
+      background-color: #000000;
+      border: 3px solid #ffffff;
       box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: #ffffff;
       font-weight: bold;
       transform: translate(-50%, -50%);
       z-index: 10;
     }
   </style>
 </head>
-<body class="bg-amber-50 text-gray-800 pt-16">
+<body class="bg-white text-black pt-16">
   <!-- Fixed Header -->
-<!-- Fixed Header -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-amber-900 to-amber-700 text-white shadow-lg">
-  <div class="container mx-auto px-4 py-2 flex justify-between items-center"> <!-- Changed from py-4 to py-2 -->
-    <div class="flex items-center gap-2"> <!-- Reduced gap from 3 to 2 -->
-      <div class="cat-silhouette w-8 h-8"></div> <!-- Reduced from w-10 h-10 -->
-      <h1 class="text-2xl font-bold tracking-wide">
-        <span class="text-amber-200">Jett</span> the Explorer
-      </h1>
+  <header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-purple-900 to-black text-white shadow-lg">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <div class="cat-silhouette w-8 h-8"></div>
+        <h1 class="text-2xl font-bold tracking-wide">
+          <span class="text-purple-300">Jett</span> the Explorer
+        </h1>
+      </div>
+      <nav class="hidden md:flex gap-6 font-medium text-purple-300">
+        <a href="#about" class="hover:text-white transition">About</a>
+        <a href="#personality" class="hover:text-white transition">Personality</a>
+        <a href="#adventures" class="hover:text-white transition">Adventures</a>
+        <a href="#daily-life" class="hover:text-white transition">Daily Life</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+      </nav>
+      <div class="md:hidden">
+        <button class="text-2xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
-    <nav class="hidden md:flex gap-6 font-medium text-amber-200">
-      <a href="#about" class="hover:text-white transition">About</a>
-      <a href="#personality" class="hover:text-white transition">Personality</a>
-      <a href="#adventures" class="hover:text-white transition">Adventures</a>
-      <a href="#daily-life" class="hover:text-white transition">Daily Life</a>
-      <a href="#faq" class="hover:text-white transition">FAQ</a>
-    </nav>
-    <div class="md:hidden">
-      <button class="text-2xl focus:outline-none">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </div>
-</header>
+  </header>
 
   <!-- Hero Section -->
-  <!-- Hero Section -->
-<section class="relative h-screen flex items-center overflow-hidden mt-[-16px]">
+  <section class="relative h-screen flex items-center overflow-hidden mt-[-16px]">
     <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-amber-900/50 z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-purple-900/50 z-10"></div>
       <img src="images/hero.png" alt="Black cat background" class="w-full h-full object-cover" />
     </div>
     <div class="container mx-auto px-4 relative z-20 text-white">
@@ -132,7 +130,7 @@
           The legendary jet-black cat of Mechanicsville, known for his adventures, confidence, and neighborhood patrols.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#about" class="px-8 py-3 bg-amber-600 hover:bg-amber-500 rounded-full font-medium transition text-center">
+          <a href="#about" class="px-8 py-3 bg-purple-600 hover:bg-purple-500 rounded-full font-medium transition text-center">
             Discover His Story
           </a>
           <a href="#adventures" class="px-8 py-3 border-2 border-white hover:bg-white/20 rounded-full font-medium transition text-center">
@@ -144,40 +142,40 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-20 bg-white">
+  <section id="about" class="py-20 bg-black text-white">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center gap-16">
         <div class="w-full md:w-1/2 relative">
-          <div class="bg-amber-100 w-full h-96 rounded-xl overflow-hidden shadow-2xl">
+          <div class="bg-purple-900 w-full h-96 rounded-xl overflow-hidden shadow-2xl">
             <img src="images/sleeping_jett.png" alt="Black cat relaxing" class="w-full h-full object-cover" />
           </div>
           <div class="absolute -bottom-6 -right-6 w-32 h-32 cat-silhouette float"></div>
         </div>
         <div class="w-full md:w-1/2">
-          <h2 class="text-amber-900 text-sm font-semibold tracking-widest mb-2">ABOUT JETT</h2>
+          <h2 class="text-purple-300 text-sm font-semibold tracking-widest mb-2">ABOUT JETT</h2>
           <h3 class="text-3xl md:text-4xl font-bold mb-6">The Real Jett</h3>
-          <p class="text-gray-700 mb-4 text-lg">
+          <p class="text-gray-300 mb-4 text-lg">
             Jett is a confident, jet-black cat who lives in Mechanicsville. Unlike many cats, Jett is extremely social and treats the entire neighborhood as his domain, making regular visits to homes whether they have pets or not.
           </p>
-          <p class="text-gray-700 mb-4 text-lg">
+          <p class="text-gray-300 mb-4 text-lg">
             With his brother Jack (who has a distinctive white spot on his chest), Jett enjoys the freedom of outdoor explorations. While Jack is more skittish, Jett boldly goes wherever his curiosity leads him.
           </p>
-          <p class="text-gray-700 mb-6 text-lg">
+          <p class="text-gray-300 mb-6 text-lg">
             A successful hunter who doesn't eat his prey, Jett is also quite vocal about his needs – especially when treats are involved. Despite his adventurous nature, he loves cuddles and is known throughout Mechanicsville for his friendly, confident personality.
           </p>
           <div class="flex items-center gap-6">
-            <span class="text-4xl text-amber-600 font-light">+</span>
+            <span class="text-4xl text-purple-600 font-light">+</span>
             <div>
               <h4 class="font-semibold">Brother</h4>
-              <p class="text-gray-500">Jack (more skittish, has a white spot)</p>
+              <p class="text-gray-400">Jack (more skittish, has a white spot)</p>
             </div>
           </div>
-          <div class="h-px bg-gray-200 my-4"></div>
+          <div class="h-px bg-gray-700 my-4"></div>
           <div class="flex items-center gap-6">
-            <span class="text-4xl text-amber-600 font-light">+</span>
+            <span class="text-4xl text-purple-600 font-light">+</span>
             <div>
               <h4 class="font-semibold">Residence</h4>
-              <p class="text-gray-500">Mechanicsville</p>
+              <p class="text-gray-400">Mechanicsville</p>
             </div>
           </div>
         </div>
@@ -186,9 +184,9 @@
   </section>
 
   <!-- Comparison with Jack Section -->
-  <section class="py-20 bg-gradient-to-r from-amber-800 to-amber-600 text-white">
+  <section class="py-20 bg-gradient-to-r from-purple-900 to-black text-white">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-amber-300 text-sm font-semibold tracking-widest mb-2">THE BROTHERS</h2>
+      <h2 class="text-purple-300 text-sm font-semibold tracking-widest mb-2">THE BROTHERS</h2>
       <h3 class="text-3xl md:text-4xl font-bold mb-16">Jett vs. Jack</h3>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -197,59 +195,58 @@
           <h4 class="text-2xl font-bold mb-4">Jett</h4>
           <ul class="text-left space-y-4">
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>Pure jet-black fur</span>
             </li>
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>Confident and adventurous</span>
             </li>
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>Skilled hunter (doesn't eat prey)</span>
             </li>
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>Social with neighbors and other animals</span>
             </li>
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>Enjoys teasing dogs from safety</span>
             </li>
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>Fat cat who loves treats!</span>
             </li>
           </ul>
         </div>
         
         <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
-          <div class="w-24 h-24 cat-silhouette mx-auto mb-6 relative">
-          </div>
+          <div class="w-24 h-24 cat-silhouette mx-auto mb-6 relative"></div>
           <h4 class="text-2xl font-bold mb-4">Jack</h4>
           <ul class="text-left space-y-4">
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>Black fur with white chest spot</span>
             </li>
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>More skittish and cautious</span>
             </li>
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>Less successful hunter (eats prey)</span>
             </li>
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>Less sociable with strangers</span>
             </li>
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>Prefers to stay closer to home</span>
             </li>
             <li class="flex items-center gap-3">
-              <i class="fas fa-check text-amber-300"></i>
+              <i class="fas fa-check text-purple-300"></i>
               <span>Also enjoys cuddles</span>
             </li>
           </ul>
@@ -259,10 +256,10 @@
   </section>
 
   <!-- Personality Traits -->
-  <section id="personality" class="py-20 bg-white">
+  <section id="personality" class="py-20 bg-white text-black">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-amber-900 text-sm font-semibold tracking-widest mb-2">PERSONALITY</h2>
+        <h2 class="text-purple-600 text-sm font-semibold tracking-widest mb-2">PERSONALITY</h2>
         <h3 class="text-3xl md:text-4xl font-bold mb-6">Jett's Unique Character</h3>
         <p class="text-gray-600 text-lg">
           What makes Jett special isn't just his looks, but his larger-than-life personality that has made him the talk of Mechanicsville.
@@ -271,8 +268,8 @@
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Trait 1 -->
-        <div class="bg-amber-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
-          <div class="w-16 h-16 bg-amber-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-amber-600 transition">
+        <div class="bg-purple-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
+          <div class="w-16 h-16 bg-purple-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-purple-600 transition">
             <i class="fas fa-map-marked-alt text-2xl"></i>
           </div>
           <h4 class="text-xl font-bold mb-3">The Neighborhood Mayor</h4>
@@ -282,8 +279,8 @@
         </div>
         
         <!-- Trait 2 -->
-        <div class="bg-amber-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
-          <div class="w-16 h-16 bg-amber-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-amber-600 transition">
+        <div class="bg-purple-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
+          <div class="w-16 h-16 bg-purple-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-purple-600 transition">
             <i class="fas fa-paw text-2xl"></i>
           </div>
           <h4 class="text-xl font-bold mb-3">The Fearless Hunter</h4>
@@ -293,8 +290,8 @@
         </div>
         
         <!-- Trait 3 -->
-        <div class="bg-amber-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
-          <div class="w-16 h-16 bg-amber-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-amber-600 transition">
+        <div class="bg-purple-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
+          <div class="w-16 h-16 bg-purple-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-purple-600 transition">
             <i class="fas fa-dog text-2xl"></i>
           </div>
           <h4 class="text-xl font-bold mb-3">The Dog Taunter</h4>
@@ -304,8 +301,8 @@
         </div>
         
         <!-- Trait 4 -->
-        <div class="bg-amber-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
-          <div class="w-16 h-16 bg-amber-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-amber-600 transition">
+        <div class="bg-purple-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
+          <div class="w-16 h-16 bg-purple-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-purple-600 transition">
             <i class="fas fa-volume-up text-2xl"></i>
           </div>
           <h4 class="text-xl font-bold mb-3">The Vocal Demander</h4>
@@ -315,8 +312,8 @@
         </div>
         
         <!-- Trait 5 -->
-        <div class="bg-amber-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
-          <div class="w-16 h-16 bg-amber-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-amber-600 transition">
+        <div class="bg-purple-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
+          <div class="w-16 h-16 bg-purple-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-purple-600 transition">
             <i class="fas fa-heart text-2xl"></i>
           </div>
           <h4 class="text-xl font-bold mb-3">The Cuddle King</h4>
@@ -326,8 +323,8 @@
         </div>
         
         <!-- Trait 6 -->
-        <div class="bg-amber-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
-          <div class="w-16 h-16 bg-amber-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-amber-600 transition">
+        <div class="bg-purple-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition group">
+          <div class="w-16 h-16 bg-purple-900 rounded-full mb-6 flex items-center justify-center text-white group-hover:bg-purple-600 transition">
             <i class="fas fa-utensils text-2xl"></i>
           </div>
           <h4 class="text-xl font-bold mb-3">The Treat Connoisseur</h4>
@@ -340,10 +337,10 @@
   </section>
 
   <!-- Adventures Section -->
-  <section id="adventures" class="py-20 bg-amber-100">
+  <section id="adventures" class="py-20 bg-purple-100">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-amber-900 text-sm font-semibold tracking-widest mb-2">ADVENTURES</h2>
+        <h2 class="text-purple-900 text-sm font-semibold tracking-widest mb-2">ADVENTURES</h2>
         <h3 class="text-3xl md:text-4xl font-bold mb-6">Jett's Neighborhood Patrol</h3>
         <p class="text-gray-600 text-lg">
           Follow Jett on his daily adventures as he patrols his territory and visits his favorite spots in Mechanicsville.
@@ -372,7 +369,7 @@
         </div>
         
         <!-- Map overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-amber-900/70 to-transparent flex items-end">
+        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent flex items-end">
           <div class="p-8 text-white">
             <h3 class="text-2xl font-bold mb-2">Jett's Territory</h3>
             <p>Follow the markers to see Jett's favorite neighborhood spots</p>
@@ -385,8 +382,8 @@
           <h3 class="text-2xl font-bold mb-6">Famous Stops</h3>
           <div class="space-y-8">
             <div class="flex gap-6">
-              <div class="w-16 h-16 flex-shrink-0 bg-amber-200 rounded-full flex items-center justify-center">
-                <i class="fas fa-home text-amber-800 text-2xl"></i>
+              <div class="w-16 h-16 flex-shrink-0 bg-purple-200 rounded-full flex items-center justify-center">
+                <i class="fas fa-home text-purple-800 text-2xl"></i>
               </div>
               <div>
                 <h4 class="font-bold mb-2">Home Base</h4>
@@ -395,8 +392,8 @@
             </div>
             
             <div class="flex gap-6">
-              <div class="w-16 h-16 flex-shrink-0 bg-amber-200 rounded-full flex items-center justify-center">
-                <i class="fas fa-dog text-amber-800 text-2xl"></i>
+              <div class="w-16 h-16 flex-shrink-0 bg-purple-200 rounded-full flex items-center justify-center">
+                <i class="fas fa-dog text-purple-800 text-2xl"></i>
               </div>
               <div>
                 <h4 class="font-bold mb-2">The Dog House</h4>
@@ -405,8 +402,8 @@
             </div>
             
             <div class="flex gap-6">
-              <div class="w-16 h-16 flex-shrink-0 bg-amber-200 rounded-full flex items-center justify-center">
-                <i class="fas fa-tree text-amber-800 text-2xl"></i>
+              <div class="w-16 h-16 flex-shrink-0 bg-purple-200 rounded-full flex items-center justify-center">
+                <i class="fas fa-tree text-purple-800 text-2xl"></i>
               </div>
               <div>
                 <h4 class="font-bold mb-2">Hunting Grounds</h4>
@@ -420,8 +417,8 @@
           <h3 class="text-2xl font-bold mb-6">More Explorer Spots</h3>
           <div class="space-y-8">
             <div class="flex gap-6">
-              <div class="w-16 h-16 flex-shrink-0 bg-amber-200 rounded-full flex items-center justify-center">
-                <i class="fas fa-fish text-amber-800 text-2xl"></i>
+              <div class="w-16 h-16 flex-shrink-0 bg-purple-200 rounded-full flex items-center justify-center">
+                <i class="fas fa-fish text-purple-800 text-2xl"></i>
               </div>
               <div>
                 <h4 class="font-bold mb-2">Treat House</h4>
@@ -430,8 +427,8 @@
             </div>
             
             <div class="flex gap-6">
-              <div class="w-16 h-16 flex-shrink-0 bg-amber-200 rounded-full flex items-center justify-center">
-                <i class="fas fa-sun text-amber-800 text-2xl"></i>
+              <div class="w-16 h-16 flex-shrink-0 bg-purple-200 rounded-full flex items-center justify-center">
+                <i class="fas fa-sun text-purple-800 text-2xl"></i>
               </div>
               <div>
                 <h4 class="font-bold mb-2">Sunbathing Spot</h4>
@@ -440,8 +437,8 @@
             </div>
             
             <div class="flex gap-6">
-              <div class="w-16 h-16 flex-shrink-0 bg-amber-200 rounded-full flex items-center justify-center">
-                <i class="fas fa-mouse text-amber-800 text-2xl"></i>
+              <div class="w-16 h-16 flex-shrink-0 bg-purple-200 rounded-full flex items-center justify-center">
+                <i class="fas fa-mouse text-purple-800 text-2xl"></i>
               </div>
               <div>
                 <h4 class="font-bold mb-2">Prime Hunting Territory</h4>
@@ -455,22 +452,22 @@
   </section>
 
   <!-- Daily Schedule -->
-  <section id="daily-life" class="py-20 bg-white">
+  <section id="daily-life" class="py-20 bg-black text-white">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-amber-900 text-sm font-semibold tracking-widest mb-2">DAILY LIFE</h2>
+        <h2 class="text-purple-300 text-sm font-semibold tracking-widest mb-2">DAILY LIFE</h2>
         <h3 class="text-3xl md:text-4xl font-bold mb-6">A Day in the Life of Jett</h3>
-        <p class="text-gray-600 text-lg">
+        <p class="text-gray-300 text-lg">
           From early morning demands to late-night adventures, here's what a typical day looks like for Mechanicsville's most famous feline.
         </p>
       </div>
       
       <div class="max-w-3xl mx-auto relative pl-12">
-        <div class="absolute left-0 top-0 bottom-0 w-2 bg-amber-200 rounded-full"></div>
+        <div class="absolute left-0 top-0 bottom-0 w-2 bg-purple-200 rounded-full"></div>
         
         <div class="mb-12 relative timeline-dot timeline-line">
-          <time class="font-bold text-amber-800 block mb-2">6:00 AM</time>
-          <div class="bg-amber-50 p-6 rounded-xl shadow-md">
+          <time class="font-bold text-purple-300 block mb-2">6:00 AM</time>
+          <div class="bg-purple-50 p-6 rounded-xl shadow-md">
             <h4 class="font-bold mb-2">Wake Up Call</h4>
             <p class="text-gray-700">
               Jett wakes his humans by sitting on their faces, loudly demanding breakfast with his vocal communication skills.
@@ -479,8 +476,8 @@
         </div>
         
         <div class="mb-12 relative timeline-dot timeline-line">
-          <time class="font-bold text-amber-800 block mb-2">8:00 AM</time>
-          <div class="bg-amber-50 p-6 rounded-xl shadow-md">
+          <time class="font-bold text-purple-300 block mb-2">8:00 AM</time>
+          <div class="bg-purple-50 p-6 rounded-xl shadow-md">
             <h4 class="font-bold mb-2">Morning Patrol</h4>
             <p class="text-gray-700">
               After breakfast, Jett begins his neighborhood rounds, checking in with his favorite houses and making sure his territory is secure.
@@ -489,8 +486,8 @@
         </div>
         
         <div class="mb-12 relative timeline-dot timeline-line">
-          <time class="font-bold text-amber-800 block mb-2">12:00 PM</time>
-          <div class="bg-amber-50 p-6 rounded-xl shadow-md">
+          <time class="font-bold text-purple-300 block mb-2">12:00 PM</time>
+          <div class="bg-purple-50 p-6 rounded-xl shadow-md">
             <h4 class="font-bold mb-2">Nap & Sunbathing</h4>
             <p class="text-gray-700">
               Jett takes a well-deserved break in his favorite sunny spot, recharging for afternoon adventures.
@@ -499,8 +496,8 @@
         </div>
         
         <div class="mb-12 relative timeline-dot timeline-line">
-          <time class="font-bold text-amber-800 block mb-2">3:00 PM</time>
-          <div class="bg-amber-50 p-6 rounded-xl shadow-md">
+          <time class="font-bold text-purple-300 block mb-2">3:00 PM</time>
+          <div class="bg-purple-50 p-6 rounded-xl shadow-md">
             <h4 class="font-bold mb-2">Dog Teasing Time</h4>
             <p class="text-gray-700">
               A visit to houses with dogs to enjoy watching them bark and growl while Jett sits safely outside their windows.
@@ -509,8 +506,8 @@
         </div>
         
         <div class="mb-12 relative timeline-dot timeline-line">
-          <time class="font-bold text-amber-800 block mb-2">5:00 PM</time>
-          <div class="bg-amber-50 p-6 rounded-xl shadow-md">
+          <time class="font-bold text-purple-300 block mb-2">5:00 PM</time>
+          <div class="bg-purple-50 p-6 rounded-xl shadow-md">
             <h4 class="font-bold mb-2">Hunting Expedition</h4>
             <p class="text-gray-700">
               Jett shows off his hunting prowess, catching wildlife (but never eating it) and proving he's more skilled than his brother Jack.
@@ -519,8 +516,8 @@
         </div>
         
         <div class="mb-12 relative timeline-dot timeline-line">
-          <time class="font-bold text-amber-800 block mb-2">7:00 PM</time>
-          <div class="bg-amber-50 p-6 rounded-xl shadow-md">
+          <time class="font-bold text-purple-300 block mb-2">7:00 PM</time>
+          <div class="bg-purple-50 p-6 rounded-xl shadow-md">
             <h4 class="font-bold mb-2">Dinner & Treat Time</h4>
             <p class="text-gray-700">
               Jett returns home for dinner and vocally demands his favorite treats, using his perfected technique to get extra portions.
@@ -529,8 +526,8 @@
         </div>
         
         <div class="relative timeline-dot last-timeline">
-          <time class="font-bold text-amber-800 block mb-2">9:00 PM - 3:00 AM</time>
-          <div class="bg-amber-50 p-6 rounded-xl shadow-md">
+          <time class="font-bold text-purple-300 block mb-2">9:00 PM - 3:00 AM</time>
+          <div class="bg-purple-50 p-6 rounded-xl shadow-md">
             <h4 class="font-bold mb-2">Evening Cuddles & Midnight Adventure</h4>
             <p class="text-gray-700">
               Jett enjoys cuddle time with his humans in the evening, followed by his infamous middle-of-the-night exploration and occasional chaos around the house.
@@ -542,12 +539,12 @@
   </section>
 
   <!-- FAQ Section -->
-  <section id="faq" class="py-20 bg-amber-800 text-white">
+  <section id="faq" class="py-20 bg-purple-900 text-white">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-amber-300 text-sm font-semibold tracking-widest mb-2">QUESTIONS & ANSWERS</h2>
+        <h2 class="text-purple-300 text-sm font-semibold tracking-widest mb-2">QUESTIONS & ANSWERS</h2>
         <h3 class="text-3xl md:text-4xl font-bold mb-6">Frequently Asked Questions</h3>
-        <p class="text-amber-100 text-lg">
+        <p class="text-purple-100 text-lg">
           Everything you wanted to know about Mechanicsville's most famous feline resident.
         </p>
       </div>
@@ -555,7 +552,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <!-- FAQ Item 1 -->
         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-          <h4 class="text-xl font-bold mb-3 text-amber-300">Does Jett have any siblings?</h4>
+          <h4 class="text-xl font-bold mb-3 text-purple-300">Does Jett have any siblings?</h4>
           <p>
             Yes, Jett has a brother named Jack who is also a black cat but has a distinctive white spot on his chest. Unlike the adventurous Jett, Jack is more skittish, though he also loves to cuddle.
           </p>
@@ -563,7 +560,7 @@
         
         <!-- FAQ Item 2 -->
         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-          <h4 class="text-xl font-bold mb-3 text-amber-300">Is Jett an indoor or outdoor cat?</h4>
+          <h4 class="text-xl font-bold mb-3 text-purple-300">Is Jett an indoor or outdoor cat?</h4>
           <p>
             Jett is allowed outside and takes full advantage of this freedom to explore his territory throughout Mechanicsville, visiting neighbors and establishing himself as the neighborhood's feline mayor.
           </p>
@@ -571,7 +568,7 @@
         
         <!-- FAQ Item 3 -->
         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-          <h4 class="text-xl font-bold mb-3 text-amber-300">Does Jett hunt?</h4>
+          <h4 class="text-xl font-bold mb-3 text-purple-300">Does Jett hunt?</h4>
           <p>
             Yes, Jett is a successful hunter who occasionally catches wild animals, though he doesn't eat his prey. His brother Jack, while slower and less successful at hunting, will eat what he catches.
           </p>
@@ -579,7 +576,7 @@
         
         <!-- FAQ Item 4 -->
         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-          <h4 class="text-xl font-bold mb-3 text-amber-300">How does Jett interact with neighbors?</h4>
+          <h4 class="text-xl font-bold mb-3 text-purple-300">How does Jett interact with neighbors?</h4>
           <p>
             Jett is extremely social and visits everyone in the neighborhood as if he owns the place. He's so confident that he even visits homes with dogs, enjoying watching them bark and growl at him through windows.
           </p>
@@ -587,7 +584,7 @@
         
         <!-- FAQ Item 5 -->
         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-          <h4 class="text-xl font-bold mb-3 text-amber-300">Is Jett vocal?</h4>
+          <h4 class="text-xl font-bold mb-3 text-purple-300">Is Jett vocal?</h4>
           <p>
             Jett is very vocal about his needs and isn't shy about letting his humans know what he wants, especially when it comes to treats. His communication skills are well-developed and effective.
           </p>
@@ -595,7 +592,7 @@
         
         <!-- FAQ Item 6 -->
         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-          <h4 class="text-xl font-bold mb-3 text-amber-300">What's Jett's favorite food?</h4>
+          <h4 class="text-xl font-bold mb-3 text-purple-300">What's Jett's favorite food?</h4>
           <p>
             Jett has a particular fondness for treats and is quite vocal about requesting them. He's quite the fat cat who loves his food and has mastered the art of convincing humans to give him extra portions.
           </p>
@@ -603,7 +600,7 @@
         
         <!-- FAQ Item 7 -->
         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-          <h4 class="text-xl font-bold mb-3 text-amber-300">How does Jett get along with other animals?</h4>
+          <h4 class="text-xl font-bold mb-3 text-purple-300">How does Jett get along with other animals?</h4>
           <p>
             Jett is very social and gets along well with other animals. He particularly enjoys teasing dogs from the safety of the other side of a window, finding their reactions highly entertaining.
           </p>
@@ -611,7 +608,7 @@
         
         <!-- FAQ Item 8 -->
         <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-          <h4 class="text-xl font-bold mb-3 text-amber-300">How did Jett get his name?</h4>
+          <h4 class="text-xl font-bold mb-3 text-purple-300">How did Jett get his name?</h4>
           <p>
             His jet-black fur was likely the inspiration for his name, which perfectly suits his sleek appearance and confident, adventurous personality.
           </p>
@@ -619,7 +616,7 @@
       </div>
       
       <div class="text-center mt-12">
-        <a href="#" class="inline-block px-8 py-3 bg-amber-600 hover:bg-amber-500 rounded-full font-medium transition">
+        <a href="#" class="inline-block px-8 py-3 bg-purple-600 hover:bg-purple-500 rounded-full font-medium transition">
           View All FAQs
         </a>
       </div>
@@ -627,10 +624,10 @@
   </section>
 
   <!-- Gallery Section -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-white text-black">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-amber-900 text-sm font-semibold tracking-widest mb-2">GALLERY</h2>
+        <h2 class="text-purple-600 text-sm font-semibold tracking-widest mb-2">GALLERY</h2>
         <h3 class="text-3xl md:text-4xl font-bold mb-6">Jett's Photo Album</h3>
         <p class="text-gray-600 text-lg">
           Capturing moments from Jett's adventures around Mechanicsville.
@@ -668,7 +665,7 @@
       </div>
       
       <div class="text-center mt-12">
-        <a href="#" class="inline-block px-8 py-3 border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white rounded-full font-medium transition">
+        <a href="#" class="inline-block px-8 py-3 border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white rounded-full font-medium transition">
           View Full Gallery
         </a>
       </div>
@@ -676,10 +673,10 @@
   </section>
 
   <!-- Quote Section -->
-  <section class="py-20 bg-amber-600 text-white">
+  <section class="py-20 bg-purple-600 text-white">
     <div class="container mx-auto px-4 text-center">
       <div class="max-w-4xl mx-auto">
-        <div class="cat-silhouette w-20 h-20  mx-auto mb-8"></div>
+        <div class="cat-silhouette w-20 h-20 mx-auto mb-8"></div>
         <blockquote class="text-2xl md:text-4xl font-light italic mb-8">
           "This neighborhood? It's all mine."
         </blockquote>
@@ -689,11 +686,11 @@
   </section>
 
   <!-- Interactive Message Form -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-white text-black">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-amber-900 text-sm font-semibold tracking-widest mb-2">GET IN TOUCH</h2>
+          <h2 class="text-purple-600 text-sm font-semibold tracking-widest mb-2">GET IN TOUCH</h2>
           <h3 class="text-3xl md:text-4xl font-bold mb-6">Share Your Jett Sightings</h3>
           <p class="text-gray-600 text-lg">
             Have you spotted Jett in your yard? Let us know about your encounter with Mechanicsville's favorite feline explorer!
@@ -704,20 +701,20 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-              <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent" placeholder="John Doe">
+              <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="John Doe">
             </div>
             <div>
               <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
-              <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent" placeholder="john@example.com">
+              <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="john@example.com">
             </div>
           </div>
           <div>
             <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Where Did You See Jett?</label>
-            <input type="text" id="location" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent" placeholder="Your address or landmark in Mechanicsville">
+            <input type="text" id="location" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Your address or landmark in Mechanicsville">
           </div>
           <div>
             <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Jett Story</label>
-            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent" placeholder="Tell us about your encounter with Jett!"></textarea>
+            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Tell us about your encounter with Jett!"></textarea>
           </div>
           <div>
             <label for="photo" class="block text-sm font-medium text-gray-700 mb-1">Upload Photo (optional)</label>
@@ -735,7 +732,7 @@
             </div>
           </div>
           <div class="text-center pt-4">
-            <button type="submit" class="px-8 py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-full font-medium transition">
+            <button type="submit" class="px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-full font-medium transition">
               Submit Your Jett Sighting
             </button>
           </div>
@@ -745,28 +742,28 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-16">
+  <footer class="bg-black text-white py-16">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
         <div>
           <div class="flex items-center gap-3 mb-4">
-            <div class="cat-silhouette w-10 h-10 bg-amber-400"></div>
+            <div class="cat-silhouette w-10 h-10 bg-purple-400"></div>
             <h2 class="text-xl font-bold">Jett the Explorer</h2>
           </div>
           <p class="text-gray-400 mb-4">
             Dedicated to Mechanicsville's most adventurous and beloved feline resident, exploring since 2021.
           </p>
           <div class="flex space-x-4">
-            <a href="#" class="text-white hover:text-amber-400">
+            <a href="#" class="text-white hover:text-purple-400">
               <i class="fab fa-facebook"></i>
             </a>
-            <a href="#" class="text-white hover:text-amber-400">
+            <a href="#" class="text-white hover:text-purple-400">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="text-white hover:text-amber-400">
+            <a href="#" class="text-white hover:text-purple-400">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="text-white hover:text-amber-400">
+            <a href="#" class="text-white hover:text-purple-400">
               <i class="fab fa-youtube"></i>
             </a>
           </div>
@@ -800,8 +797,8 @@
           </p>
           <form>
             <div class="flex mb-2">
-              <input type="email" placeholder="Your email" class="px-3 py-2 bg-gray-800 text-white rounded-l-lg w-full focus:outline-none focus:ring-2 focus:ring-amber-500">
-              <button type="submit" class="bg-amber-600 px-4 py-2 rounded-r-lg hover:bg-amber-500 transition">
+              <input type="email" placeholder="Your email" class="px-3 py-2 bg-gray-800 text-white rounded-l-lg w-full focus:outline-none focus:ring-2 focus:ring-purple-500">
+              <button type="submit" class="bg-purple-600 px-4 py-2 rounded-r-lg hover:bg-purple-500 transition">
                 <i class="fas fa-paper-plane"></i>
               </button>
             </div>
@@ -825,17 +822,17 @@
       const menuButton = document.querySelector('.fa-bars').parentElement;
       const mobileMenu = document.createElement('div');
       
-      mobileMenu.className = 'fixed inset-0 bg-amber-900 z-50 flex items-center justify-center transform translate-x-full transition duration-300';
+      mobileMenu.className = 'fixed inset-0 bg-purple-900 z-50 flex items-center justify-center transform translate-x-full transition duration-300';
       mobileMenu.innerHTML = `
         <button class="absolute top-6 right-6 text-2xl text-white">
           <i class="fas fa-times"></i>
         </button>
         <nav class="flex flex-col items-center gap-8 text-xl font-medium text-white">
-          <a href="#about" class="hover:text-amber-300 transition">About</a>
-          <a href="#personality" class="hover:text-amber-300 transition">Personality</a>
-          <a href="#adventures" class="hover:text-amber-300 transition">Adventures</a>
-          <a href="#daily-life" class="hover:text-amber-300 transition">Daily Life</a>
-          <a href="#faq" class="hover:text-amber-300 transition">FAQ</a>
+          <a href="#about" class="hover:text-purple-300 transition">About</a>
+          <a href="#personality" class="hover:text-purple-300 transition">Personality</a>
+          <a href="#adventures" class="hover:text-purple-300 transition">Adventures</a>
+          <a href="#daily-life" class="hover:text-purple-300 transition">Daily Life</a>
+          <a href="#faq" class="hover:text-purple-300 transition">FAQ</a>
         </nav>
       `;
       
