@@ -17,7 +17,6 @@
     }
     
     .cat-silhouette {
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   background-image: url('images/logo.svg');
   background-size: cover;
   background-position: center;
@@ -95,29 +94,33 @@
 </head>
 <body class="bg-amber-50 text-gray-800 pt-16">
   <!-- Fixed Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-amber-900 to-amber-700 text-white shadow-lg">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <img src="images/logo.svg" alt="Cat Logo" class="w-12 h-12 mx-auto">
-        <h1 class="text-2xl md:text-3xl font-bold tracking-tight">Jett the Explorer</h1>
-      </div>
-      <nav class="hidden md:flex gap-6 font-medium text-amber-200">
-        <a href="#about" class="hover:text-white transition">About</a>
-        <a href="#personality" class="hover:text-white transition">Personality</a>
-        <a href="#adventures" class="hover:text-white transition">Adventures</a>
-        <a href="#daily-life" class="hover:text-white transition">Daily Life</a>
-        <a href="#faq" class="hover:text-white transition">FAQ</a>
-      </nav>
-      <div class="md:hidden">
-        <button class="text-2xl focus:outline-none">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
+<!-- Fixed Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-amber-900 to-amber-700 text-white shadow-lg">
+  <div class="container mx-auto px-4 py-2 flex justify-between items-center"> <!-- Changed from py-4 to py-2 -->
+    <div class="flex items-center gap-2"> <!-- Reduced gap from 3 to 2 -->
+      <div class="cat-silhouette w-8 h-8"></div> <!-- Reduced from w-10 h-10 -->
+      <h1 class="text-2xl font-bold tracking-wide">
+        <span class="text-amber-200">Jett</span> the Explorer
+      </h1>
     </div>
-  </header>
+    <nav class="hidden md:flex gap-6 font-medium text-amber-200">
+      <a href="#about" class="hover:text-white transition">About</a>
+      <a href="#personality" class="hover:text-white transition">Personality</a>
+      <a href="#adventures" class="hover:text-white transition">Adventures</a>
+      <a href="#daily-life" class="hover:text-white transition">Daily Life</a>
+      <a href="#faq" class="hover:text-white transition">FAQ</a>
+    </nav>
+    <div class="md:hidden">
+      <button class="text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</header>
 
   <!-- Hero Section -->
-  <section class="relative h-screen flex items-center overflow-hidden">
+  <!-- Hero Section -->
+<section class="relative h-screen flex items-center overflow-hidden mt-[-16px]">
     <div class="absolute inset-0 z-0">
       <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-amber-900/50 z-10"></div>
       <img src="images/hero.png" alt="Black cat background" class="w-full h-full object-cover" />
@@ -148,7 +151,7 @@
           <div class="bg-amber-100 w-full h-96 rounded-xl overflow-hidden shadow-2xl">
             <img src="images/sleeping_jett.png" alt="Black cat relaxing" class="w-full h-full object-cover" />
           </div>
-          <div class="absolute -bottom-6 -right-6 w-32 h-32 cat-silhouette bg-amber-500 float"></div>
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 cat-silhouette float"></div>
         </div>
         <div class="w-full md:w-1/2">
           <h2 class="text-amber-900 text-sm font-semibold tracking-widest mb-2">ABOUT JETT</h2>
@@ -190,7 +193,7 @@
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
-          <div class="w-24 h-24 cat-silhouette bg-amber-500 mx-auto mb-6"></div>
+          <div class="w-24 h-24 cat-silhouette mx-auto mb-6"></div>
           <h4 class="text-2xl font-bold mb-4">Jett</h4>
           <ul class="text-left space-y-4">
             <li class="flex items-center gap-3">
@@ -221,8 +224,7 @@
         </div>
         
         <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
-          <div class="w-24 h-24 cat-silhouette bg-gray-200 mx-auto mb-6 relative">
-            <div class="absolute w-8 h-8 bg-white rounded-full top-14 left-8"></div>
+          <div class="w-24 h-24 cat-silhouette mx-auto mb-6 relative">
           </div>
           <h4 class="text-2xl font-bold mb-4">Jack</h4>
           <ul class="text-left space-y-4">
@@ -677,7 +679,7 @@
   <section class="py-20 bg-amber-600 text-white">
     <div class="container mx-auto px-4 text-center">
       <div class="max-w-4xl mx-auto">
-        <div class="cat-silhouette w-20 h-20 bg-white/30 mx-auto mb-8"></div>
+        <div class="cat-silhouette w-20 h-20  mx-auto mb-8"></div>
         <blockquote class="text-2xl md:text-4xl font-light italic mb-8">
           "This neighborhood? It's all mine."
         </blockquote>
