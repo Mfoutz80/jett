@@ -20,6 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
   
+        // Scroll event for auto-opening chat
+        let scrollTimer = null;
+        window.addEventListener('scroll', () => {
+          if (!chatBox.classList.contains('active')) {
+            // Clear any existing timer
+            if (scrollTimer) {
+              clearTimeout(scrollTimer);
+            }
+            // Set new timer for 3 seconds
+            scrollTimer = setTimeout(() => {
+              chatBubble.style.transform = 'scale(1.1)'; // Expand bubble
+              chatBox.classList.add('active'); // Show chat
+              chatInput.focus();
+            }, 3000);
+          }
+        });
+  
         // Send message on button click
         sendButton.addEventListener('click', sendMessage);
   
