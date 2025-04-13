@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chatbot/chatbot.css">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -116,7 +117,7 @@
   <section class="relative h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0 z-0">
       <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-amber-900/50 z-10"></div>
-      <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?q=80&w=2070" alt="Black cat background" class="w-full h-full object-cover" />
+      <img src="images/hero.png" alt="Black cat background" class="w-full h-full object-cover" />
     </div>
     <div class="container mx-auto px-4 relative z-20 text-white">
       <div class="max-w-3xl">
@@ -133,10 +134,6 @@
           </a>
         </div>
       </div>
-    </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-center">
-      <p class="mb-2 text-sm font-light">Scroll to explore</p>
-      <i class="fas fa-chevron-down text-xl float"></i>
     </div>
   </section>
 
@@ -814,10 +811,8 @@
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <a href="#" class="fixed bottom-6 right-6 bg-amber-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-amber-500 transition">
-    <i class="fas fa-arrow-up"></i>
-  </a>
+  <!-- Chatbot Container -->
+  <div id="chatbot-container"></div>
 
   <!-- Small JS for Menu Toggle -->
   <script>
@@ -856,5 +851,6 @@
       });
     });
   </script>
+  <script src="chatbot/chatbot.js"></script>
 </body>
 </html>
