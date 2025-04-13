@@ -1,0 +1,125 @@
+.chat-bubble {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #1a202c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  .chat-bubble:hover {
+    transform: scale(1.1);
+  }
+  .chat-box {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    height: 450px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+  }
+  .chat-box.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .chat-header {
+    background-color: #1a202c;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+  }
+  .chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .message {
+    margin-bottom: 15px;
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    line-height: 1.4;
+  }
+  .user-message {
+    background-color: #e2e8f0;
+    color: #1a202c;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+  .jett-message {
+    background-color: #1a202c;
+    color: white;
+    align-self: flex-start;
+  }
+  .chat-input-container {
+    padding: 15px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+  }
+  .chat-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    outline: none;
+  }
+  .send-button {
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1a202c;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .loading-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #1a202c;
+    border-radius: 50%;
+    margin: 0 3px;
+    opacity: 0.6;
+    animation: dot-flashing 1s infinite alternate;
+  }
+  .dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  @keyframes dot-flashing {
+    0% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
